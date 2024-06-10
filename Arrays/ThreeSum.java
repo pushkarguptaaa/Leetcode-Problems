@@ -10,7 +10,7 @@ public class ThreeSum {
 
 class Solution {
     public List<List<Integer>> threeSum(int[] nums) {
-        HashSet<List<Integer>> st= new HashSet<>();
+        Set<List<Integer>> st= new HashSet<>();
         int n= nums.length;
 
         for(int i=0; i<n; i++){
@@ -30,7 +30,7 @@ class Solution {
             }
         }
 
-        List<List<Integer>> ans=  new ArrayList(st);
+        List<List<Integer>> ans=  new ArrayList<>(st);
 
         return ans;
     }
