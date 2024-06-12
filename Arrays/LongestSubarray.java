@@ -27,3 +27,27 @@ class Solution
         return max;
     }
 }
+
+class Solution1
+{
+    int maxLenPositives(int arr[], int n, int target)
+    {
+        int left= 0;
+        int right= 0;
+        int sum= 0;
+        int max= 0;
+
+        while(right<n){
+            while(left<=right && sum>target){
+                left++;
+                sum-= arr[left];
+            }
+            if(sum==target) max= Math.max(max, right-left+1);
+
+            right++;
+            if(right<n) sum+= arr[right];
+        }
+        return max;
+    }
+}
+
