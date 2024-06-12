@@ -10,7 +10,7 @@ public class LongestSubarray {
 
 class Solution
 {
-    int maxLen(int arr[], int n)
+    int maxLen(int arr[], int n, int target)
     {
         Map<Integer, Integer> mp= new HashMap<>();
         int sum= 0;
@@ -20,10 +20,8 @@ class Solution
             sum+= arr[i];
             
             if(sum==0) max= i+1;
-            else{
-                if(mp.containsKey(sum)) max= Math.max(max, i-mp.get(sum));
-                else mp.put(sum, i); 
-            }
+            if(mp.containsKey(sum-target)) max= Math.max(max, i-mp.get(sum-target));
+            if(!mp.containsKey(sum)) mp.put(sum, i); 
             
         }
         return max;
