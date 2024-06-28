@@ -1,5 +1,7 @@
 package GreedyAlgorithm;
 
+import java.util.*;
+
 public class FindPlatform {
     public static void main(String[] args) {
         
@@ -30,6 +32,8 @@ class Solution1
 {
     static int findPlatform(int arr[], int dep[], int n)
     {
+        Arrays.sort(arr);
+        Arrays.sort(dep);
         int ans= 1;
         int plat= 1;
         int i= 1;
