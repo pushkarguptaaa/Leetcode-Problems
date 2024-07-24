@@ -15,6 +15,7 @@ class stack {
         arr[top] = x;
     }
     int pop() {
+        if(top==-1) return -1;
         int x = arr[top];
         top--;
         return x;
