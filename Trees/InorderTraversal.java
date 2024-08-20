@@ -10,6 +10,7 @@ public class InorderTraversal {
 
 class TreeNode {
     int val;
+    int hd;
     TreeNode left;
     TreeNode right;
     TreeNode() {}
