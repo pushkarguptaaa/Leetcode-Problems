@@ -26,3 +26,28 @@ class Solution {
         inorder(root.right, k, cnt, ans);
     }
 }
+
+class Solution1
+{
+    public int kthLargest(TreeNode root,int K)
+    {
+        int[] ans = new int[]{0};
+        revinorder(root, K, new int[]{0}, ans);
+
+        return ans[0];
+    }
+    
+    void revinorder(TreeNode root, int K, int[] cnt, int[] ans){
+        if(root == null || cnt[0] >= K) return;
+
+        revinorder(root.right, K, cnt, ans);
+
+        cnt[0]++;
+        if(cnt[0] == K){
+            ans[0] = root.val;
+            return;
+        }
+
+        revinorder(root.left, K, cnt, ans);
+    }
+}
