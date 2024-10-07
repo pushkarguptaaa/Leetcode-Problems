@@ -6,6 +6,7 @@ public class Disjoint {
     
     public Disjoint(int n) {
         size = new int[n + 1]; 
+        par = new int[n + 1];
         for (int i = 0; i <= n; i++) {
             size[i] = 1;
             par[i] = i;
@@ -15,11 +16,11 @@ public class Disjoint {
 	int find(int X)
         {
           if(X == par[X]) return X;
-          int parent = find(X);
+          int parent = find(par[X]);
           par[X] = parent;
           return par[X];
 	}
-	void unionSet(int par[],int X,int Z)
+	void unionSet(int X,int Z)
         {
          int upx = find(X);
          int upz = find(Z);
