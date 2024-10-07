@@ -1,34 +1,36 @@
 package Graphs;
 
 public class Disjoint {
-    int[] size; 
+    int[] size;
+    int[] par;
     
     public Disjoint(int n) {
         size = new int[n + 1]; 
         for (int i = 0; i <= n; i++) {
             size[i] = 1;
+            par[i] = i;
         }
     }
     
-	int find(int A[],int X)
+	int find(int X)
         {
-          if(X == A[X]) return X;
-          int par = find(A, A[X]);
-          A[X] = par;
-          return A[X];
+          if(X == par[X]) return X;
+          int parent = find(X);
+          par[X] = parent;
+          return par[X];
 	}
-	void unionSet(int A[],int X,int Z)
+	void unionSet(int par[],int X,int Z)
         {
-         int upx = find(A, X);
-         int upz = find(A, Z);
+         int upx = find(X);
+         int upz = find(Z);
          
          if(upx == upz) return;
          if(size[upx] < size[upz]){
-             A[upx] = upz;
+             par[upx] = upz;
              size[upz] = size[upz] + size[upx];
          }
          else{
-             A[upz] = upx;
+             par[upz] = upx;
              size[upx] = size[upx] + size[upz];
          }
 	}
